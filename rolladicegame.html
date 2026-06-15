@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice Game</title>
+    <style>
+        img{
+            height: 100px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .roll{
+            transform: rotate(360deg);
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Roll the dice</h2>
+
+    <img id="dicev" src="./images/1.png">
+
+    <br><br>
+
+    <button onclick="rollDice()">Roll the dice</button>
+
+    <script>
+        function rollDice() {
+            let diceValue = Math.floor(Math.random() * 6) + 1;
+
+            let diceImg = document.getElementById("dicev");
+
+            diceImg.classList.add("roll");
+
+            setTimeout(() => {
+                diceImg.src = `./images/${diceValue}.png`;
+                diceImg.classList.remove("roll");
+            }, 300);
+
+            console.log(diceValue);
+        }
+    </script>
+
+</body>
+</html>
